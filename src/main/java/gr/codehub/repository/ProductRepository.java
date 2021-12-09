@@ -16,6 +16,11 @@ public class ProductRepository {
         products = new ArrayList<>();
     }
 
+    public List<Product> getProducts(){
+        return products;
+    }
+
+
 
     public void addProduct(Product product){
         products.add(product);
@@ -52,7 +57,7 @@ public class ProductRepository {
     public double totalPrice(){
         return products
                 .stream()
-                .map(product -> product.getPrice())
+                .map(Product::getPrice)
                 .reduce(0.0, (a,b)->a+b);
     }
 
